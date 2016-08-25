@@ -2,12 +2,22 @@
 
 Ship::Ship() {}
 
-void Ship::setShipInfo(std::string newName, int newLength)
+void Ship::setShipInfo(std::string newName, int newLength,bool newIsHorizontal)
 {
 	this->ShipName = newName;
-	this->ShipLength = newLength;
+	this->ShipSize = newLength;
+	this->isHorizontal = newIsHorizontal;
 }
 
+int Ship::getShipSize()
+{
+	return this->ShipSize;
+}
+
+bool Ship::getIsHorizontal()
+{
+	return isHorizontal;
+}
 void Ship::setLocationX(int)
 {
 	//TODO set Randomly X location.

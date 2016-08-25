@@ -1,6 +1,11 @@
 #pragma once
 #include "Ship.h"
 
+struct Location
+{
+	int x;
+	int y;
+};
 class BattleMap
 {
 public:
@@ -8,17 +13,29 @@ public:
 	void CreateMap();
 	void PrintMap();
 	void DeterminateShipsLocation();
+	Location getDeterminatedLocation(Ship);
 private:
 	Ship Ships[3];
-	char Map[10][10] = {{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
-						{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }};
+	char VisualMap[10][10] = {	{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }, 
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' }};
+	
+	char HiddenMap[10][10] = {	{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },
+								{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' } };
 };
 

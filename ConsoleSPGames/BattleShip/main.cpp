@@ -11,7 +11,7 @@ int main()
 	//PrintIntroduceGame();
 	//PlayGame();
 	TestMap.DeterminateShipsLocation();
-	
+	TestMap.PrintMap();
 
 
 	system("pause");
@@ -31,6 +31,5 @@ void PrintIntroduceGame()
 void PlayGame()
 {
 	//TODO Initialize the Game and Start Game.
-	TestMap.PrintMap();
 }
 
