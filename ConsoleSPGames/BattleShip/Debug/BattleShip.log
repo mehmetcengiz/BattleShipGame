@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : Access to the path 'c:\users\meciry\documents\github\consolespgames\consolespgames\debug\battleship.exe' is denied.
+  Ship.cpp
+  main.cpp
+  GameBattleShip.cpp
+  BattleMap.cpp
+c:\users\meciry\documents\github\consolespgames\consolespgames\battleship\battlemap.cpp(42): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+LINK : fatal error LNK1104: cannot open file 'C:\Users\Meciry\Documents\GitHub\ConsoleSPGames\ConsoleSPGames\Debug\BattleShip.exe'
