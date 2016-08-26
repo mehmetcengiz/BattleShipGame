@@ -12,8 +12,11 @@ public:
 	BattleMap();
 	void CreateMap();
 	void PrintMap();
+	bool checkShipFitsToLocation(Ship,Location);
 	void DeterminateShipsLocation();
-	Location getDeterminatedLocation(Ship);
+	Location getNewLocation(Ship);
+	void PlaceTheShip(Ship,Location);
+
 private:
 	Ship Ships[3];
 	char VisualMap[10][10] = {	{ 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x' },

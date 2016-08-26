@@ -11,6 +11,10 @@ public:
 	void setLocationY(int);
 	int getShipSize();
 	bool getIsHorizontal();
+	int getLocationX();
+	int getLocationY();
+	
+	
 	void GotHit();
 	bool isShipSinked();
 

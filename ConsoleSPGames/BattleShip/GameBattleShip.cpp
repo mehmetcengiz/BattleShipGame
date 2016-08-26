@@ -6,9 +6,6 @@ GameBattleShip::GameBattleShip()
 {
 	TotalShipCount = 3;
 }
-GameBattleShip::~GameBattleShip()
-{
-}
 
 bool GameBattleShip::isPlayerWon()
 {

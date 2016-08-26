@@ -18,14 +18,25 @@ bool Ship::getIsHorizontal()
 {
 	return isHorizontal;
 }
-void Ship::setLocationX(int)
+
+int Ship::getLocationX()
 {
-	//TODO set Randomly X location.
+	return this->ShipLocation_X;
 }
 
-void Ship::setLocationY(int)
+int Ship::getLocationY()
 {
-	//TODO set Randomly X location by BattleMap.
+	return this->ShipLocation_Y;
+}
+
+void Ship::setLocationX(int x)
+{
+	this->ShipLocation_X = x;
+}
+
+void Ship::setLocationY(int y)
+{
+	this->ShipLocation_Y = y;
 }
 
 void Ship::GotHit()

@@ -40,47 +40,24 @@ void BattleMap::DeterminateShipsLocation()
 {
 	
 
-	for(int i = 0;i <3 ;i++)
+	//Determinate Ships Location for per Ship
+	for(int totalShipCount = 0;totalShipCount <3 ;totalShipCount++)
 	{
-		//TODO Determinate Ships Location 
-		//Check if the ship is horizontal or not.
-		Location location = getDeterminatedLocation(Ships[i]);
-		//Determinate random x and y value depends on angle.
-		//Get the x and y value and check if the ship fits the location.
-	}
-	
-
-	/*for(int shipCount =0; shipCount <3; shipCount++)
-	{
-		if(Ships[shipCount].getIsHorizontal()) //When ship is horizontal X should be lower than (Max X - ShipSize).
-		{										// to not pass the max X value (Max X = 10)
-			x = rand() % (10 - Ships[shipCount].getShipSize());
-			y = rand() % 10;
-			for (int i = 0; i<Ships[shipCount].getShipSize(); i++)
-			{
-				if (HiddenMap[x + i][y] == '0')
-				{
-					shipCount--;
-				}
-			}
+		Location location = getNewLocation(Ships[totalShipCount]); // get random x and y value.
+		bool isShipFits = checkShipFitsToLocation(Ships[totalShipCount],location);// check if ship fits that location
+		if(isShipFits)
+		{
+			PlaceTheShip(Ships[totalShipCount],location); // Place the ship if it fits.
 		}else
 		{
-			x = rand() % 10;
-			y = rand() % (10 - Ships[shipCount].getShipSize());
-			for (int i = 0; i<Ships[shipCount].getShipSize(); i++)	//When ship is vertical
-			{
-				if (HiddenMap[x][y+i] == '0')
-				{
-					shipCount--;
-				}
-			}
+			totalShipCount--;							// If not fits. find another x y value for sames 
 		}
 
-	}*/
-
-
+	}
 }
-Location getDeterminatedLocation(Ship currentShip)
+
+
+Location BattleMap::getNewLocation(Ship currentShip)
 {
 	Location location;
 
@@ -94,5 +71,46 @@ Location getDeterminatedLocation(Ship currentShip)
 		location.x = rand() % 10;
 		location.y = rand() % (10 - currentShip.getShipSize());
 	}
+	currentShip.setLocationX(location.x);
+	currentShip.setLocationY(location.y);
 	return location;
+}
+
+bool BattleMap::checkShipFitsToLocation(Ship currentShip,Location location)
+{
+
+	for (int i = 0; i < currentShip.getShipSize(); i++)
+	{
+		if(currentShip.getIsHorizontal())
+		{
+			if (HiddenMap[location.x + i][location.y] == '0')
+			{
+				return false;
+			}
+		}else
+		{
+			if (HiddenMap[location.x][location.y + i] == '0')
+			{
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+void BattleMap::PlaceTheShip(Ship currentShip,Location location)
+{
+	for(int shipSizeCount = 0;shipSizeCount<currentShip.getShipSize();shipSizeCount++)
+	{
+		if(currentShip.getIsHorizontal())
+		{
+			HiddenMap[location.x + shipSizeCount][location.y] = '0';
+		}else
+		{
+			HiddenMap[location.x][location.y + shipSizeCount] = '0';
+		}
+		
+	}
+	
 }

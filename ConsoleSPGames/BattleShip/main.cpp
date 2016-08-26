@@ -4,7 +4,7 @@
 void PrintIntroduceGame();
 void PlayGame();
 
-BattleMap TestMap;
+BattleMap TestMap; //To test BattleMap functions.
 
 int main()
 {

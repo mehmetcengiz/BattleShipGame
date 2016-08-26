@@ -4,7 +4,6 @@ class GameBattleShip
 public:
 	//Constructors n Destructors
 	GameBattleShip();
-	~GameBattleShip();
 
 
 	bool isPlayerWon();

@@ -1,8 +1,4 @@
-﻿  Ship.cpp
-  main.cpp
-  GameBattleShip.cpp
-  BattleMap.cpp
-c:\users\meciry\documents\github\consolespgames\consolespgames\battleship\battlemap.cpp(87): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-BattleMap.obj : error LNK2019: unresolved external symbol "public: struct Location __thiscall BattleMap::getDeterminatedLocation(class Ship)" (?getDeterminatedLocation@BattleMap@@QAE?AULocation@@VShip@@@Z) referenced in function "public: void __thiscall BattleMap::DeterminateShipsLocation(void)" (?DeterminateShipsLocation@BattleMap@@QAEXXZ)
-C:\Users\Meciry\Documents\GitHub\ConsoleSPGames\ConsoleSPGames\Debug\BattleShip.exe : fatal error LNK1120: 1 unresolved externals
+﻿  BattleMap.cpp
+c:\users\meciry\documents\github\consolespgames\consolespgames\battleship\battlemap.cpp(64): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  BattleShip.vcxproj -> C:\Users\Meciry\Documents\GitHub\ConsoleSPGames\ConsoleSPGames\Debug\BattleShip.exe
+  BattleShip.vcxproj -> C:\Users\Meciry\Documents\GitHub\ConsoleSPGames\ConsoleSPGames\Debug\BattleShip.pdb (Partial PDB)
