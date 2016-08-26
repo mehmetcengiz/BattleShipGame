@@ -11,7 +11,6 @@ BattleMap::BattleMap()
 	Ships[2].setShipInfo("Hornet", 5,false);
 }
 
-
 void BattleMap::PrintMap()
 {
 	std::cout << "   ";
@@ -36,14 +35,14 @@ void BattleMap::PrintMap()
 
 }
 
-void BattleMap::DeterminateShipsLocation()
+void BattleMap::DetermineShipsLocation()
 {
-	
-
+	Location location;
+	constexpr int TotalShip = 3;
 	//Determinate Ships Location for per Ship
-	for(int totalShipCount = 0;totalShipCount <3 ;totalShipCount++)
+	for(int totalShipCount = 0;totalShipCount <TotalShip ;totalShipCount++)
 	{
-		Location location = getNewLocation(Ships[totalShipCount]); // get random x and y value.
+		location = getNewLocation(Ships[totalShipCount]); // get random x and y value.
 		bool isShipFits = checkShipFitsToLocation(Ships[totalShipCount],location);// check if ship fits that location
 		if(isShipFits)
 		{
@@ -52,10 +51,8 @@ void BattleMap::DeterminateShipsLocation()
 		{
 			totalShipCount--;							// If not fits. find another x y value for sames 
 		}
-
 	}
 }
-
 
 Location BattleMap::getNewLocation(Ship currentShip)
 {
@@ -78,10 +75,12 @@ Location BattleMap::getNewLocation(Ship currentShip)
 
 bool BattleMap::checkShipFitsToLocation(Ship currentShip,Location location)
 {
+	int Size = currentShip.getShipSize();
+	bool isHorizontal = currentShip.getIsHorizontal();
 
-	for (int i = 0; i < currentShip.getShipSize(); i++)
+	for (int i = 0; i < Size; i++)
 	{
-		if(currentShip.getIsHorizontal())
+		if(isHorizontal)
 		{
 			if (HiddenMap[location.x + i][location.y] == '0')
 			{
@@ -101,9 +100,12 @@ bool BattleMap::checkShipFitsToLocation(Ship currentShip,Location location)
 
 void BattleMap::PlaceTheShip(Ship currentShip,Location location)
 {
-	for(int shipSizeCount = 0;shipSizeCount<currentShip.getShipSize();shipSizeCount++)
+	int Size = currentShip.getShipSize();
+	bool isHorizontal = currentShip.getIsHorizontal();
+
+	for(int shipSizeCount = 0;shipSizeCount<Size;shipSizeCount++)
 	{
-		if(currentShip.getIsHorizontal())
+		if(isHorizontal)
 		{
 			HiddenMap[location.x + shipSizeCount][location.y] = '0';
 		}else

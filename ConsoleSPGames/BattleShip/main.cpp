@@ -10,7 +10,7 @@ int main()
 {
 	//PrintIntroduceGame();
 	//PlayGame();
-	TestMap.DeterminateShipsLocation();
+	TestMap.DetermineShipsLocation();
 	TestMap.PrintMap();
 
 
