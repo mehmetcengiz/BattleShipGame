@@ -10,6 +10,7 @@ class BattleMap
 {
 public:
 	BattleMap();
+
 	void CreateMap();
 	void PrintMap();
 	void DetermineShipsLocation();

@@ -1,17 +1,17 @@
 #include <iostream>
-#include "BattleMap.h"
+#include "GameBattleShip.h"
 
 void PrintIntroduceGame();
 void PlayGame();
 
-BattleMap TestMap; //To test BattleMap functions.
+GameBattleShip gamebattleship;
 
 int main()
 {
-	//PrintIntroduceGame();
-	//PlayGame();
-	TestMap.DetermineShipsLocation();
-	TestMap.PrintMap();
+	PrintIntroduceGame();
+	PlayGame();
+	//TestMap.DetermineShipsLocation();
+	//TestMap.PrintMap();
 
 
 	system("pause");
@@ -30,6 +30,7 @@ void PrintIntroduceGame()
 
 void PlayGame()
 {
-	//TODO Initialize the Game and Start Game.
+	gamebattleship.InitializeGame();
+	gamebattleship.PlayGame();
 }
 

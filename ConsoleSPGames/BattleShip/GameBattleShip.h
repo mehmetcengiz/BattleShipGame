@@ -1,20 +1,25 @@
 #pragma once
+#include "BattleMap.h"
+
 class GameBattleShip
 {
+	BattleMap battleMap;
+
 public:
 	//Constructors n Destructors
 	GameBattleShip();
 
-
-	bool isPlayerWon();
-
-	void StartGame();
 	void InitializeGame();
 	void PlayGame();
 	void ResetGame();
 
 private:
 	int TotalShipCount;
+	int ShootX;
+	int ShootY;
 
+	bool checkShootingPointsAreValid(int, int);
+	bool getShootingPointFromPlayer();
+	bool isPlayerWon();
 };
 
