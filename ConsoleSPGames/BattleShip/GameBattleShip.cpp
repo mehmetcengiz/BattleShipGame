@@ -20,27 +20,26 @@ void GameBattleShip::InitializeGame()
 void GameBattleShip::PlayGame()
 {
 	//TODO Play Game
-	bool validPoint;
+	bool _isValidPoint;
 	bool _isPlayerWon;
 	do
 	{
-
+		system("cls");
 		battleMap.PrintMap();
 		do
 		{
-			validPoint = getShootingPointFromPlayer();
-		} while (!validPoint);
-		system("cls");
+			_isValidPoint = getValidShootingPointFromPlayer(); 
+		} while (!_isValidPoint);
+
+		//if there is a ship on that location
+			//call gothit function for that ship.
+		//else
+			//change the char on that location
 		_isPlayerWon = isPlayerWon();
 	}
 	while (!_isPlayerWon);
-	//if there is a ship on that location
-		//call gothit function for that ship.
-	//else
-		//change the char on that location
-	//check isPlayerWon every time.
 }
-bool GameBattleShip::getShootingPointFromPlayer()
+bool GameBattleShip::getValidShootingPointFromPlayer()
 {
 	int x, y;
 	std::cout << "Enter X: ";
@@ -51,6 +50,8 @@ bool GameBattleShip::getShootingPointFromPlayer()
 	if(checkShootingPointsAreValid(x, y))
 	{
 		std::cout << "\nPoints Are Valid\n";
+		this->ShootX = x;
+		this->ShootY = y;
 		return true;
 	}else
 	{

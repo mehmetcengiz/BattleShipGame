@@ -19,7 +19,7 @@ private:
 	int ShootY;
 
 	bool checkShootingPointsAreValid(int, int);
-	bool getShootingPointFromPlayer();
+	bool getValidShootingPointFromPlayer();
 	bool isPlayerWon();
 };
 
