@@ -10,16 +10,18 @@ public:
 	GameBattleShip();
 
 	void InitializeGame();
+	void ShotThePoint();
 	void PlayGame();
 	void ResetGame();
+	
 
 private:
-	int TotalShipCount;
 	int ShootX;
 	int ShootY;
 
 	bool checkShootingPointsAreValid(int, int);
 	bool getValidShootingPointFromPlayer();
+	bool isPointAlreadyGotShoot(int x,int y);
 	bool isPlayerWon();
 };
 

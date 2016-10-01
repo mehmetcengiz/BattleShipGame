@@ -1,14 +1,20 @@
 #include "BattleMap.h"
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 
 BattleMap::BattleMap()
 {
 	Ships[0].setShipInfo("Wasp", 3,false);
 	Ships[1].setShipInfo("Langley", 4,true);
 	Ships[2].setShipInfo("Hornet", 5,false);
+
+	ShipsPointer[0] = &Ships[0];
+	ShipsPointer[1] = &Ships[1];
+	ShipsPointer[2] = &Ships[2];
+
+
 }
 
 void BattleMap::PrintMap()
@@ -38,9 +44,9 @@ void BattleMap::PrintMap()
 void BattleMap::DetermineShipsLocation()
 {
 	Location location;
-	constexpr int TotalShip = 3;
+	TOTALSHIPSCOUNT;
 	//Determinate Ships Location for per Ship
-	for(int totalShipCount = 0;totalShipCount <TotalShip ;totalShipCount++)
+	for(int totalShipCount = 0;totalShipCount <TOTALSHIPSCOUNT;totalShipCount++)
 	{
 		location = getNewLocation(Ships[totalShipCount]); // get random x and y value.
 		bool isShipFits = checkShipFitsToLocation(Ships[totalShipCount],location);// check if ship fits that location
@@ -102,6 +108,8 @@ void BattleMap::PlaceTheShip(Ship currentShip,Location location)
 {
 	int Size = currentShip.getShipSize();
 	bool isHorizontal = currentShip.getIsHorizontal();
+	currentShip.setLocationX(location.x);
+	currentShip.setLocationY(location.y);
 
 	for(int shipSizeCount = 0;shipSizeCount<Size;shipSizeCount++)
 	{
@@ -115,4 +123,70 @@ void BattleMap::PlaceTheShip(Ship currentShip,Location location)
 		
 	}
 	
+}
+
+
+char BattleMap::getPointFromVisualMap(int x, int y)
+{
+	return VisualMap[x][y];
+}
+
+char BattleMap::getPointFromHiddenMap(int x, int y)
+{
+	return HiddenMap[x][y];
+}
+
+
+Ship BattleMap::getShipFromAPoint(int x, int y)
+{
+	Ship ShipGotHit;
+	int ShipSize;
+	int ShipLocationX,ShipLocationY;
+	bool IsShipHorizontal;
+	
+	//For Each Ship
+	//TODO Keep Going From Here.
+	//TODO Infinite Loop Because Locations of Ships are not set.
+	for (Ship ship : Ships)
+	{
+		ShipSize = ship.getShipSize();
+		ShipLocationX = ship.getLocationX();
+		ShipLocationY = ship.getLocationY();
+		IsShipHorizontal = ship.getIsHorizontal();
+
+		for(int ShipSizeCount =0; ShipSizeCount < ShipSize;ShipSizeCount)
+		{
+			if (IsShipHorizontal)
+			{
+				if((ShipLocationX + ShipSizeCount) == x && ShipLocationY == y)
+				{
+					std::cout << "\n\nHorizontal and Size:" << ship.getShipSize() << std::endl;
+					return ship;
+				}
+			}else 
+			{
+				if(ShipLocationX == x && (ShipLocationY + ShipSizeCount) == y)
+				{
+					std::cout << "\n\nNNNNNNOTTT  Horizontal and Size:" << ship.getShipSize() << std::endl;
+					return ship;
+				}
+			}
+		}
+	}
+
+
+	//for(int shipCount=0;shipCount<TOTALSHIPSCOUNT;shipCount++)
+	//{
+	//	ShipSize = Ships[shipCount].getShipSize();
+	//	for(int shipSizeCount=0;shipSizeCount<ShipSize;shipSizeCount++)
+	//	{
+	//		//if(Ships[shipCount])
+	//	}
+	//}
+
+
+
+
+	Ship ship;
+	return ship;
 }
