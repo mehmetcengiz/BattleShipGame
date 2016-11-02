@@ -1,4 +1,3 @@
-﻿  BattleMap.cpp
-c:\users\meciry\documents\github\battleshipgame\battleship\battleship\battlemap.cpp(67): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  GameBattleShip.cpp
   BattleShip.vcxproj -> C:\Users\Meciry\Documents\GitHub\BattleShipGame\BattleShip\Debug\BattleShip.exe
   BattleShip.vcxproj -> C:\Users\Meciry\Documents\GitHub\BattleShipGame\BattleShip\Debug\BattleShip.pdb (Partial PDB)

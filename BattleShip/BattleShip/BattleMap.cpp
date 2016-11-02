@@ -110,6 +110,8 @@ void BattleMap::PlaceTheShip(Ship currentShip,Location location)
 	bool isHorizontal = currentShip.getIsHorizontal();
 	currentShip.setLocationX(location.x);
 	currentShip.setLocationY(location.y);
+	
+
 
 	for(int shipSizeCount = 0;shipSizeCount<Size;shipSizeCount++)
 	{

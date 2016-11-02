@@ -58,6 +58,7 @@ bool GameBattleShip::getValidShootingPointFromPlayer()
 		return false;
 	}
 }
+
 bool GameBattleShip::checkShootingPointsAreValid(int x,int y)
 {
 	if(x <=10 && x>=0 && y <= 10 && y>=0)
@@ -94,7 +95,7 @@ void GameBattleShip::ShotThePoint()
 
 	}else
 	{
-		std::cout << "TEST**************Nopeeeeeee..";
+		std::cout << "TEST**************Nopeeeeeee.." << std::endl;
 		//No ship got hit.
 	}
 
